@@ -3,6 +3,8 @@ import copy
 from game import SudokuGrid
 
 
+# Solves the given sudoku grid and returns it as a new grid. The grid given in parameter is copied and kept as it is.
+# In case that the given grid has no solution, None type is returned instead of the solution grid.
 class SudokuSolver:
     # Returned the solved sudoku grid associated to the given sudoku grid
     def solve(self, sudokuGrid):
@@ -17,6 +19,7 @@ class SudokuSolver:
 
             tried = [[] for i in empty]
 
+            # Sorry not sorry for the while
             while currentIndex < len(empty):
 
                 currentAvail = list(avail)
@@ -24,14 +27,16 @@ class SudokuSolver:
 
                 (i, j) = empty[currentIndex]
 
+                # Tests each number in the available ones.
                 for index, num in enumerate(currentAvail):
 
+                    # If the number is not in the line, column or square, it is added at this index
                     if num not in grid.getColumn(j) and num not in grid.getLine(i) and num not in grid.getSquare(
                             grid.getSquareNumber(i, j)) and num not in tried[currentIndex]:
                         grid[i, j] = num
-                        print(sudokuGrid)
                         break
-                    # Backtracking
+                    # Backtracking. We tried all the possibilities and None is working,
+                    #  we backtrack to the previous number and try another number for it.
                     elif index == len(currentAvail) - 1:
 
                         currentIndex -= 1
@@ -48,7 +53,6 @@ class SudokuSolver:
 
                         previous = grid[previousIndexes]
                         grid[previousIndexes] = None
-                        print((i, j), " elem : ", previous)
                         tried[currentIndex].append(previous)
                         currentIndex -= 1
 
@@ -59,6 +63,8 @@ class SudokuSolver:
 
         return grid
 
+    # Verifies if the given sudoku grid respects the rules of the game.
+    # Checks if each line, column and square only contain one instance of every number.
     def respectRules(self, sudokuGrid):
 
         for i in range(sudokuGrid.width):
@@ -66,14 +72,16 @@ class SudokuSolver:
             col = sudokuGrid.getColumn(i)
             sq = sudokuGrid.getSquare(i)
 
-            if self.sum(line) != self.sum(set(line)) or self.sum(col) != self.sum(set(col)) or self.sum(sq) != self.sum(
+            if self.__sum(line) != self.__sum(set(line)) or self.__sum(col) != self.__sum(set(col)) or self.__sum(sq) != self.__sum(
                     set(sq)):
                 return False
 
         return True
 
-    def sum(self, it):
-        
+    # Calculates the sum of the given iterable, considering None as a 0 value.
+    # This function should not be called from outside this class.
+    def __sum(self, it):
+
         sum = 0
 
         for i in it:
@@ -81,6 +89,8 @@ class SudokuSolver:
                 sum += i
         return sum
 
+    # Finds empty spaces in the grid, where there are no number (None), and return them as a
+    # List of type containing the line and the column of those spaces.
     def findHoles(self, sudokuGrid):
 
         result = []
@@ -90,14 +100,6 @@ class SudokuSolver:
                 if sudokuGrid[i, j] is None:
                     result.append((i, j))
 
-        print(result)
         return result
 
 
-solver = SudokuSolver()
-grid = SudokuGrid.SudokuGrid()
-grid = solver.solve(grid)
-print(grid)
-print(solver.solve(grid))
-print(SudokuGrid.SudokuGrid())
-print(solver.solve(SudokuGrid.SudokuGrid()))
