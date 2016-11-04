@@ -9,36 +9,57 @@ class SudokuSolver:
 
         grid = copy.copy(sudokuGrid)
 
-        # The available values from 1 to 9 shuffled
-        values = [i for i in range(1, 10)]
-        random.shuffle(values)
+        empty = self.findHoles(grid)
+        avail = [i for i in range(1, 10)]
+        currentIndex = 0
 
-        j = 0
+        tried = [[] for i in empty]
 
-        for i in range(grid.height):
-            # start new line, get the available values back
-            avail = list(values)
-            random.shuffle(avail)
-            j = 0
+        while currentIndex < len(empty):
 
-            for j in range(grid.width):
+            currentAvail = list(avail)
+            random.shuffle(currentAvail)
 
-                if grid[i, j] == None:
-                    # Tests until given element works
-                    for e, k in enumerate(avail):
+            (i, j) = empty[currentIndex]
 
-                        # If k is not in either line, column or square, we test it there
-                        if k not in grid.getColumn(j) and k not in grid.getLine(i) and k not in grid.getSquare(
-                                grid.getSquareNumber(i, j)):
-                            grid[i, j] = k
-                            break
+            for index, num in enumerate(currentAvail):
 
+                if num not in grid.getColumn(j) and num not in grid.getLine(i) and num not in grid.getSquare(
+                        grid.getSquareNumber(i, j)) and num not in tried[currentIndex]:
+                    grid[i, j] = num
+                    print(sudokuGrid)
+                    break
+                # Backtracking
+                elif index == len(currentAvail) - 1:
 
+                    currentIndex -= 1
+                    previousIndexes = empty[currentIndex]
 
+                    # Clears the tried for the indexes higher than the new current
+                    for k in range(currentIndex + 1, len(tried)):
+                        tried[k] = []
 
+                    previous = grid[previousIndexes]
+                    grid[previousIndexes] = None
+                    print((i, j), " elem : ", previous)
+                    tried[currentIndex].append(previous)
+                    currentIndex -= 1
 
+            currentIndex += 1
 
         return grid
+
+    def findHoles(self, sudokuGrid):
+
+        result = []
+
+        for i in range(sudokuGrid.height):
+            for j in range(sudokuGrid.width):
+                if sudokuGrid[i, j] is None:
+                    result.append((i, j))
+
+        print(result)
+        return result
 
 
 solver = SudokuSolver()
