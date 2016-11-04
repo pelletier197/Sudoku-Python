@@ -43,6 +43,31 @@ class SudokuGrid(Grid.Grid):
 
         return list
 
+    def __setitem__(self, item, value):
+
+        l, c = item
+
+        if l < 0 or c < 0 or l >= self.height or c >= self.width:
+            raise IndexError()
+        if type(value) == int and (value < 0 or value > 9):
+            raise ValueError()
+        elif value is not None and type(value) != int:
+            raise ValueError()
+
+        self.entries[l * self.width + c] = value
+
+    def setEntries(self, entries):
+
+        assert len(entries) == self.width * self.height
+
+        for i in entries:
+            if type(i) == int and (i < 0 or i > 9):
+                raise ValueError()
+            elif i is not None and type(i) != int:
+                raise ValueError()
+
+        self.entries = entries
+
     def getSquareNumber(self, l, c):
 
         if l < 0 or l > 9 or c < 0 or c > 9:
@@ -50,3 +75,37 @@ class SudokuGrid(Grid.Grid):
 
         return (l // 3) * 3 + (c // 3)
 
+    def __str__(self):
+
+        total = '''
+   _____________________
+  ǀ{0} {1} {2} | {3} {4} {5} | {6} {7} {8}|
+  |{9} {10} {11} | {12} {13} {14} | {15} {16} {17}|
+  |{18} {19} {20} | {21} {22} {23} | {24} {25} {26}|
+  |---------------------|
+  |{27} {28} {29} | {30} {31} {32} | {33} {34} {35}|
+  |{36} {37} {38} | {39} {40} {41} | {42} {43} {44}|
+  |{45} {46} {47} | {48} {49} {50} | {51} {52} {53}|
+  |---------------------|
+  |{54} {55} {56} | {57} {58} {59} | {60} {61} {62}|
+  |{63} {64} {65} | {66} {67} {68} | {69} {70} {71}|
+  |{72} {73} {74} | {75} {76} {77} | {78} {79} {80}|
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+    '''
+        for i, t in enumerate(self.toString()):
+            cur = "{" + str(i) + "}"
+            total =  total.replace(cur, t)
+
+        return total
+
+    def toString(self):
+
+        strelem = []
+
+        for i in self.entries:
+            if i is None:
+                strelem.append(".")
+            else:
+                strelem.append(str(i))
+
+        return tuple(strelem)

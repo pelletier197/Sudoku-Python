@@ -1,5 +1,4 @@
 import random
-import copy
 from game import SudokuGrid
 
 
@@ -11,7 +10,8 @@ class SudokuSolver:
 
         if self.respectRules(sudokuGrid):
 
-            grid = copy.copy(sudokuGrid)
+            grid = SudokuGrid.SudokuGrid()
+            grid.setEntries(list(sudokuGrid.entries))
 
             empty = self.findHoles(grid)
             avail = [i for i in range(1, 10)]

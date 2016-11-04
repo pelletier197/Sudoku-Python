@@ -22,7 +22,7 @@ class SudokuGenerator:
         cop.setEntries(list(sudokuGrid.entries))
 
         # Random amount of holes
-        numHole = random.randrange(15, 31)
+        numHole = random.randrange(60, 70)
 
         for i in range(numHole):
             i,j = random.randrange(0, 9), random.randrange(0, 9)
@@ -30,10 +30,4 @@ class SudokuGenerator:
 
         return cop
 
-generator = SudokuGenerator()
-solver = SudokuSolver.SudokuSolver()
 
-grids=  generator.generateGrid()
-print(str(grids[0]))
-print(str(grids[1]))
-print(solver.solve(grids[0]))
