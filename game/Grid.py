@@ -44,7 +44,7 @@ class Grid:
         assert len(entries) == self.width * self.height
 
         for i in entries:
-            assert type(i) == int or i == " "
+            assert type(i) == int or i is None
 
         self.entries = entries
 
