@@ -22,7 +22,7 @@ class SudokuGenerator:
         cop.setEntries(list(sudokuGrid.entries))
 
         # Random amount of holes
-        numHole = random.randrange(60, 70)
+        numHole = random.randrange(65, 75)
 
         for i in range(numHole):
             i,j = random.randrange(0, 9), random.randrange(0, 9)
