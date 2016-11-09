@@ -1,20 +1,25 @@
 from game import SudokuGrid
-from game import SudokuGenerator
-from game import SudokuSolver
 
 
-# Reads a sudoku grid into a given text file and return it as a SudokuGrid object
-def readSudoku(file):
+# Reads a list of soduku grids in a txt file and returns it as a list of sudoku grids
+def read_sudoku(file):
     with open(file, 'r') as fi:
         text = fi.read()
         text = text.replace(" ", "").replace("\n", "")
 
-    return __toGrid(text)
+    gridqty = len(text) // 81
+    grids = []
+
+    for t in range(gridqty):
+        cur = text[t * 81:t * 81 + 81]
+        grids.append(__togrid(cur))
+
+    return grids
 
 
 # Converts the given text input into a grid of sudoku.
 # This function should only be used internally and not be called from outside this class.
-def __toGrid(text):
+def __togrid(text):
     grid = SudokuGrid.SudokuGrid()
     entries = []
 
@@ -23,21 +28,21 @@ def __toGrid(text):
             entries.append(None)
         else:
             entries.append(int(i))
-    grid.setEntries(entries)
+    grid.setentries(entries)
 
     return grid
 
 
 # Writes the given sudoku grid into the given file as a text representation.
 # You may deserialize this grid by calling readSudoku
-def writeSudoku(file, grid):
+def write_sudoku(file, grid):
     with open(file, "w") as fi:
-        fi.write(__fromGrid(grid))
+        fi.write(__fromgrid(grid))
 
 
 # Creates the text associated to a SudokuGrid. This function is used to serialize the sudoku grid.
 # This function is used internally and should not be called outside this class.
-def __fromGrid(grid):
+def __fromgrid(grid):
     text = ""
 
     for i in grid.entries:
@@ -47,17 +52,3 @@ def __fromGrid(grid):
             text += str(i)
 
     return text
-
-
-generator = SudokuGenerator.SudokuGenerator()
-solver = SudokuSolver.SudokuSolver()
-
-grids = generator.generateGrid()
-
-print(str(grids[0]))
-print(str(grids[1]))
-
-print(solver.solve(grids[0]))
-
-test = readSudoku("yomama.txt")
-print(test)

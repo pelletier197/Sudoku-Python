@@ -9,7 +9,7 @@ class Grid:
 
         assert h > 0 and w > 0
 
-        self.entries = [None for i in range(h * w)]
+        self.entries = [None in range(h * w)]
         self.width = w
         self.height = h
 
@@ -39,7 +39,7 @@ class Grid:
 
         self.entries[l * self.width + c] = value
 
-    def setEntries(self, entries):
+    def setentries(self, entries):
 
         assert len(entries) == self.width * self.height
 
@@ -48,7 +48,7 @@ class Grid:
 
         self.entries = entries
 
-    def getLine(self, line):
+    def getline(self, line):
 
         if line < 0 or line >= self.height:
             raise IndexError()
@@ -57,12 +57,10 @@ class Grid:
 
         return self.entries[start:start + self.width]
 
-    def getColumn(self, col):
+    def getcolumn(self, col):
 
         if col < 0 or col >= self.width:
             raise IndexError()
-
-        start = col
 
         return self.entries[col::self.width]
 
@@ -73,12 +71,10 @@ class Grid:
         for i in range(self.height):
             for j in range(self.width):
                 item = self[i, j]
-                if item == None:
+                if item is None:
                     total += " |"
                 else:
                     total += str(item) + "|"
-            total = total[0:len(total) - 1]+"\n"
-
+            total = total[0:len(total) - 1] + "\n"
 
         return total
-
