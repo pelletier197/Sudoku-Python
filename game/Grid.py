@@ -1,8 +1,6 @@
+# A grid is a container used as a 2 dimensional array and where the entries of the given
+# grid are only numbers or None values.
 class Grid:
-    entries = None
-    height = 0
-    width = 0
-
     # Initializes the game grid with the given height and width.
     # h and w parameters must be > than 0, or an AssertionError is raised
     def __init__(self, h, w):
@@ -39,6 +37,9 @@ class Grid:
 
         self.entries[l * self.width + c] = value
 
+    # Sets the entries of the grid. The entries must either be int values or None value.
+    # Also, the number of elements in entries parameter must be width * height. Use this function to set
+    # all the entries of the grid
     def setentries(self, entries):
 
         assert len(entries) == self.width * self.height
@@ -48,6 +49,8 @@ class Grid:
 
         self.entries = entries
 
+    # Returns the line of the grid associated to the given index,
+    #  where line parameter is contained in range [0, width-1]
     def getline(self, line):
 
         if line < 0 or line >= self.height:
@@ -57,6 +60,8 @@ class Grid:
 
         return self.entries[start:start + self.width]
 
+    # Returns the column of the grid associated to the given column index,
+    # here col is contained in range [0,height-1]
     def getcolumn(self, col):
 
         if col < 0 or col >= self.width:
@@ -64,6 +69,7 @@ class Grid:
 
         return self.entries[col::self.width]
 
+    # Returns the grid in a string representation
     def __str__(self):
 
         total = ""

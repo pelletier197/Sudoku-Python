@@ -1,4 +1,5 @@
 import random
+
 from game import SudokuGrid
 
 
@@ -31,8 +32,8 @@ class SudokuSolver:
                 for index, num in enumerate(current_avail):
 
                     # If the number is not in the line, column or square, it is added at this index
-                    if num not in grid.getcolumn(j) and num not in grid.getline(i) and num not in grid.getsquare(
-                            grid.get_square_number(i, j)) and num not in tried[currentindex]:
+                    if num not in tried[currentindex] and num not in grid.getcolumn(j) and num not in grid.getline(
+                            i) and num not in grid.getsquare(grid.get_square_number(i, j)):
                         grid[i, j] = num
                         break
                     # Backtracking. We tried all the possibilities and None is working,
@@ -72,8 +73,9 @@ class SudokuSolver:
             col = sudokugrid.getcolumn(i)
             sq = sudokugrid.getsquare(i)
 
-            if self.__sum(line) != self.__sum(set(line)) or self.__sum(col) != self.__sum(set(col)) or self.__sum(sq) != self.__sum(
-                    set(sq)):
+            if self.__sum(line) != self.__sum(set(line)) or self.__sum(col) != self.__sum(set(col)) or self.__sum(
+                    sq) != self.__sum(
+                set(sq)):
                 return False
 
         return True
@@ -101,5 +103,3 @@ class SudokuSolver:
                     result.append((i, j))
 
         return result
-
-

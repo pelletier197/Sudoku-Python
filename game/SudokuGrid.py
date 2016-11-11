@@ -1,7 +1,10 @@
 from game import Grid
 
 
+# Container class created from a Grid object. It uses to contain values contained in the range [1, 9]
+# and None values, where None specifies and empty entry.
 class SudokuGrid(Grid.Grid):
+    # Initializes a Sudoku grid containing only None values in it.
     def __init__(self):
         super().__init__(9, 9)
 
@@ -43,19 +46,23 @@ class SudokuGrid(Grid.Grid):
 
         return lis
 
-    def __setitem__(self, item, value):
+    # Used to set the entry at the index(line, column) in the given tab.
+    # The value must either be contained between [1, 9] or be a None value, or an error is raised
+    def __setitem__(self, item, index):
 
         l, c = item
 
         if l < 0 or c < 0 or l >= self.height or c >= self.width:
             raise IndexError()
-        if type(value) == int and (value < 0 or value > 9):
+        if type(index) == int and (index < 0 or index > 9):
             raise ValueError()
-        elif value is not None and type(value) != int:
+        elif index is not None and type(index) != int:
             raise ValueError()
 
-        self.entries[l * self.width + c] = value
+        self.entries[l * self.width + c] = index
 
+    # Sets all the entries of the Sudoku grid, where all the entries are either between[1 , 9] or are None.
+    # The length of the entries must be of 81
     def setentries(self, entries):
 
         assert len(entries) == self.width * self.height
@@ -68,6 +75,8 @@ class SudokuGrid(Grid.Grid):
 
         self.entries = entries
 
+    # Returns the square number that can be used in getsquare method
+    # for the given live and column in the grid.
     def get_square_number(self, l, c):
 
         if l < 0 or l > 9 or c < 0 or c > 9:
@@ -75,6 +84,8 @@ class SudokuGrid(Grid.Grid):
 
         return (l // 3) * 3 + (c // 3)
 
+    # Returns the grid as a String representation with
+    # line and columns indicated, and where None values are replaces with spaces.
     def __str__(self):
 
         total = '''
@@ -93,13 +104,15 @@ class SudokuGrid(Grid.Grid):
  9 |{72} {73} {74} | {75} {76} {77} | {78} {79} {80}|
     ---------------------
     '''
-        for i, t in enumerate(self.tostring()):
+        for i, t in enumerate(self.__tostring()):
             cur = "{" + str(i) + "}"
             total = total.replace(cur, t)
 
         return total
 
-    def tostring(self):
+    # Turns the grid into a tuple containing . for empty entries and the number as a string for the others.
+    # This method should never be called from outside this function.
+    def __tostring(self):
 
         strelem = []
 
