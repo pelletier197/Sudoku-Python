@@ -7,7 +7,7 @@ class Grid:
 
         assert h > 0 and w > 0
 
-        self.entries = [None in range(h * w)]
+        self.entries = [None for i in range(h * w)]
         self.width = w
         self.height = h
 
