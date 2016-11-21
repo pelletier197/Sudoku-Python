@@ -13,7 +13,7 @@ def graphic_manuel():
 
 
 def graphic_auto():
-    print("\nCe mode n'est pas supporté. Passez en affichage graphique pour le mode automatique")
+    print("\nCe mode n'est pas supportÃ©. Passez en affichage graphique pour le mode automatique")
 
 
 def textuel_auto():
@@ -23,7 +23,7 @@ def textuel_auto():
     for grid in grids:
         print("Calcul...")
         print(solver.solve(grid))
-    print("Terminé !")
+    print("TerminÃ© !")
 
 
 
@@ -35,13 +35,13 @@ def textuel_manuel():
 
         print(grid)
         print("\n" + "-" * 30 + "\n")
-        val = input("Entrez une [ligne (1 à 9)], [colonne(1 à 9)], [valeur (1 à 9)] : ")
+        val = input("Entrez une [ligne (1 Ã  9)], [colonne(1 Ã  9)], [valeur (1 Ã  9)] : ")
         print()
         val = val.split(",")
         try:
             line, col, val = int(val[0]) - 1, int(val[1]) - 1, int(val[2])
             if grid[line, col] is not None:
-                print("Cette entrée est déjà vérifiée. Choisissez en une autre")
+                print("Cette entrÃ©e est dÃ©jÃ  vÃ©rifiÃ©e. Choisissez en une autre")
                 continue
 
             grid[line, col] = val
@@ -59,9 +59,9 @@ def textuel_manuel():
                 print("Erreur ! Ce n'est pas le bon chiffre")
                 continue
 
-            print("Vous avez entré la bonne valeur !")
+            print("Vous avez entrÃ© la bonne valeur !")
         except Exception:
-            print("Entrée invalide !")
+            print("EntrÃ©e invalide !")
 
     Troll.troll()
 
@@ -80,8 +80,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--mode", choices=["manuel", "auto"],
                     help="Entrez cette commande pour entrer en mode manuel ou auto", type=str)
 parser.add_argument("--affichage", choices=["textuel", "graphique"],
-                    help="Entrez cette commande pour séléctioner l'affichage textuel ou graphique", type=str)
-parser.add_argument("file", help="Le fichier à specifier pour lire la grille", type=str)
+                    help="Entrez cette commande pour sÃ©lÃ©ctioner l'affichage textuel ou graphique", type=str)
+parser.add_argument("file", help="Le fichier Ã  specifier pour lire la grille", type=str)
 
 args = parser.parse_args()
 
