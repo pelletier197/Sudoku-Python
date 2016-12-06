@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$USER_HOME$/PycharmProjects/game/.idea/Sudoku.iml" filepath="$USER_HOME$/PycharmProjects/game/.idea/Sudoku.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/game.iml" filepath="$PROJECT_DIR$/.idea/game.iml" />
     </modules>
   </component>
 </project>
