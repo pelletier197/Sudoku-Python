@@ -13,7 +13,6 @@ __auteur__ = "SUPEL55"
 __date__ = "2016-11-21"
 __coequipiers__ = "RABOU264", "ANMIG8"
 
-
 import argparse
 from tkinter import Tk
 
@@ -29,6 +28,7 @@ from game.SudokuSolver import SudokuSolver
 
 
 def graphic_manuel():
+    """Opens the sudoku game into graphic and manual mode"""
     root = Tk()
     grid = FileManager.read_sudoku(args.file)[0]
     inte = GraphicInterface.GraphicInterface(root, grid)
@@ -36,11 +36,12 @@ def graphic_manuel():
 
 
 def graphic_auto():
+    """Handle the graphic and anto mode. This mode is not supported."""
     print("\nCe mode n'est pas supporté. Passez en affichage textuel pour le mode automatique")
 
 
 def textuel_auto():
-    """enter auto mode"""
+    """enter auto mode and textual mode"""
     print()
     grids = FileManager.read_sudoku(args.file)
     for grid in grids:
@@ -50,6 +51,7 @@ def textuel_auto():
 
 
 def textuel_manuel():
+    """Enter the textual mode in manual way. The user must solve the grid by himself in console."""
     print("\nInitialisation... ")
     grid = FileManager.read_sudoku(args.file)[0]
     solution = solver.solve(grid)

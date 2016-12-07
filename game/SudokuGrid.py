@@ -60,16 +60,16 @@ class SudokuGrid(Grid.Grid):
         Used to set the entry at the index(line, column) in the given tab.
         The value must either be contained between [1, 9] or be a None value, or an error is raised
         """
-        l, c = index
+        line, col = index
 
-        if l < 0 or c < 0 or l >= self.height or c >= self.width:
+        if line < 0 or col < 0 or line >= self.height or col >= self.width:
             raise IndexError()
-        if not isinstance(item, int) and (item < 0 or item > 9):
+        if isinstance(item, int) and (item < 0 or item > 9):
             raise ValueError()
         elif item is not None and not isinstance(item, int):
             raise ValueError()
 
-        self.entries[l * self.width + c] = item
+        self.entries[line * self.width + col] = item
 
     def set_entries(self, entries):
         """
@@ -87,7 +87,10 @@ class SudokuGrid(Grid.Grid):
         self.entries = entries
 
     def copy(self):
-
+        """
+        Copies the current grid and returns it as a new sudoku grid object.
+        This will copy all its entries into 2 different grids
+        """
         new = self.entries[:]
         grid = SudokuGrid()
         grid.set_entries(new)
@@ -95,15 +98,15 @@ class SudokuGrid(Grid.Grid):
         return grid
 
     @staticmethod
-    def get_square_number(l, c):
+    def get_square_number(line, col):
         """
         Returns the square number that can be used in getsquare method
         for the given live and column in the grid.
         """
-        if l < 0 or l > 9 or c < 0 or c > 9:
+        if line < 0 or line > 9 or col < 0 or col > 9:
             raise IndexError()
 
-        return (l // 3) * 3 + (c // 3)
+        return (line // 3) * 3 + (col // 3)
 
     def __str__(self):
         """
@@ -126,9 +129,9 @@ class SudokuGrid(Grid.Grid):
  9 |{72} {73} {74} | {75} {76} {77} | {78} {79} {80}|
     ---------------------
     '''
-        for i, t in enumerate(self.__tostring()):
+        for i, obj in enumerate(self.__tostring()):
             cur = "{" + str(i) + "}"
-            total = total.replace(cur, t)
+            total = total.replace(cur, obj)
 
         return total
 

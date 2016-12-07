@@ -20,8 +20,8 @@ def read_sudoku(file):
     gridqty = len(text) // 81
     grids = []
 
-    for t in range(gridqty):
-        cur = text[t * 81:t * 81 + 81]
+    for i in range(gridqty):
+        cur = text[i * 81:i * 81 + 81]
         grids.append(__togrid(cur))
 
     return grids
@@ -51,8 +51,8 @@ def write_sudoku(file, *grids):
     You may deserialize this grid by calling readSudoku
     """
     with open(file, "w") as fi:
-        for g in grids:
-            fi.write(__fromgrid(g))
+        for i in grids:
+            fi.write(__fromgrid(i))
 
 
 def __fromgrid(grid):

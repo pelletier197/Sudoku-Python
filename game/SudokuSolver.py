@@ -126,12 +126,12 @@ class SudokuSolver:
         """Check for doubles in a given list and return the double"""
         seen = {}
         indexes = set()
-        for i, e in enumerate(num_list):
-            if e is not None:
-                if e in seen.keys():
+        for i, obj in enumerate(num_list):
+            if obj is not None:
+                if obj in seen.keys():
                     indexes.add(i)
-                    indexes.add(seen.get(e))
-                seen[e] = i
+                    indexes.add(seen.get(obj))
+                seen[obj] = i
 
         return indexes
 
