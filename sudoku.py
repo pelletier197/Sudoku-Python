@@ -1,24 +1,42 @@
+﻿#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+This module is used to receive the console arguments when starting the program.
+This program cannot be started if it doesn't receive it's arguments.
+It must absolutely receive a file when being started as an argument, and can also have various options
+By default, the display is console, but can be graphic.
+Also, the resolution is manual by default, but can be automatic
+"""
+
+__auteur__ = "SUPEL55"
+__date__ = "2016-11-21"
+__coequipiers__ = "RABOU264", "ANMIG8"
+
+
 import argparse
+from tkinter import Tk
 
-from tkinter import *
-
+import GraphicInterface
 import Troll
 import game.SudokuGenerator
 from game import FileManager
 from game.SudokuSolver import SudokuSolver
-import GraphicInterface
+
 "python C:/Users/sunny/PycharmProjects/game/sudoku.py --mode manuel C:/Users/sunny/PycharmProjects/game/game/yomama.txt"
 "python C:/Users/sunny/PycharmProjects/game/sudoku.py --mode manuel C:/Users/sunny/PycharmProjects/game/game/tester.txt"
 "python C:/Users/sunny/PycharmProjects/game/sudoku.py --mode manuel --affichage graphique C:/Users/sunny/PycharmProjects/game/game/tester.txt"
+
+
 def graphic_manuel():
     root = Tk()
     grid = FileManager.read_sudoku(args.file)[0]
-    inte = GraphicInterface.GraphicInterface(root,grid)
+    inte = GraphicInterface.GraphicInterface(root, grid)
     inte.open()
 
 
 def graphic_auto():
-    print("\nCe mode n'est pas supporté. Passez en affichage graphique pour le mode automatique")
+    print("\nCe mode n'est pas supporté. Passez en affichage textuel pour le mode automatique")
 
 
 def textuel_auto():

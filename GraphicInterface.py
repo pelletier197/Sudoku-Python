@@ -1,5 +1,12 @@
-#!/usr/bin/python
-#  -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+This module is used to display a graphical interface in a window.
+"""
+__auteur__ = "ANMIG8"
+__date__ = "2016-11-24"
+__coequipiers__ = "RABOU264", "SUPEL55"
 
 import winsound
 from tkinter.filedialog import *
@@ -17,6 +24,7 @@ width = height = margin * 2 + side * 9
 
 class GraphicInterface(Frame):
     """This class constructs the graphical interface and display the game respecting the rules"""
+
     def __init__(self, parent, grid):
         """Initializes the parameters for every new charged game"""
         self.grid = grid
@@ -155,10 +163,13 @@ class GraphicInterface(Frame):
         # Applause sound
         winsound.PlaySound(path + "/applaudissements.wav", winsound.SND_ASYNC)
 
-# Functions of the menu bar. Each function call an other function or display a dialog box
+    # Functions of the menu bar. Each function call an other function or display a dialog box
 
     def new(self):
-        """Function which asks if the player whats to create a new game"""
+
+        """
+        Function which asks if the player whats to create a new game
+        """
         if askyesno("Nouveau", "Etes-vous sûr de vouloir faire une nouvelle partie ?"):
             self.__clear_numbers()
             # Stop the music
@@ -172,8 +183,10 @@ class GraphicInterface(Frame):
 
     def rules(self):
         """Function which displays the rules of the game"""
-        showinfo("Règles", "Le but du jeu est de remplir la grille avec une série de chiffres allant de 1 à 9 tous "
-                           "différents, qui ne se trouvent jamais plus d’une fois sur une même ligne, dans une même colonne "
+        showinfo("Règles", "Le but du jeu est de remplir la grille avec une "
+                           "série de chiffres allant de 1 à 9 tous "
+                           "différents, qui ne se trouvent jamais plus d’une fois sur une "
+                           "même ligne, dans une même colonne "
                            "ou dans une même sous-grille.\nSource : Wikipédia")
 
     def howto(self):
@@ -192,8 +205,10 @@ class GraphicInterface(Frame):
     def clue_t(self):
         """Function which displays what is the "clue" mode"""
         showinfo("Que fait indice ?",
-                 "L'indice vous dit si le nombre que vous avez rentré est valide pour la ligne, la colonne et le carré "
-                 "en vérifiant s'ils y est déjà présent. Le chiffre sera vert si votre nombre est valide, et rouge sinon.")
+                 "L'indice vous dit si le nombre que vous avez rentré est"
+                 " valide pour la ligne, la colonne et le carré "
+                 "en vérifiant s'ils y est déjà présent. Le chiffre sera "
+                 "vert si votre nombre est valide, et rouge sinon.")
 
     def clue(self):
         """Set the self.clue depending of the player"""
@@ -215,19 +230,23 @@ class GraphicInterface(Frame):
         """To open a game previously saved"""
         file = askopenfilename(defaultextension="sdk", filetypes=[("Fichiers Sudoku", "*.sdk")],
                                title="Choisissez le fichier à ouvrir")
-        if file is not None:
+        try:
             grids = FileManager.read_sudoku(file)
             self.grid = grids[0]
             self.original = grids[1]
             self.solution = grids[2]
             self.__create_numbers()
+        except FileNotFoundError:
+            pass
 
     def save(self):
         """To save a game"""
         file = asksaveasfilename(defaultextension="sdk", filetypes=[("Fichiers Sudoku", "*.sdk")],
                                  title="Choisissez le fichier à ouvrir")
-        if file is not None:
+        try:
             FileManager.write_sudoku(file, self.grid, self.original, self.solution)
+        except FileNotFoundError:
+            pass
 
     def open(self):
         """Create the menu bar and call respective functions"""

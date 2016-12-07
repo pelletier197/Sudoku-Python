@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+This module only contain a grid class that may be extended to have a m x n grid that contains anything.
+"""
+__auteur__ = "SUPEL55"
+__date__ = "2016-10-24"
+__coequipiers__ = "RABOU264", "ANMIG8"
+
 
 class Grid:
     """
@@ -44,7 +54,7 @@ class Grid:
 
         self.entries[l * self.width + c] = value
 
-    def setentries(self, entries):
+    def set_entries(self, entries):
         """
         Sets the entries of the grid. The entries must either be int values or None value.
         Also, the number of elements in entries parameter must be width * height. Use this function to set
@@ -53,11 +63,11 @@ class Grid:
         assert len(entries) == self.width * self.height
 
         for i in entries:
-            assert type(i) == int or i is None
+            assert isinstance(i, int) or i is None
 
         self.entries = entries
 
-    def getline(self, line):
+    def get_line(self, line):
         """
         Returns the line of the grid associated to the given index,
         where line parameter is contained in range [0, width-1]
@@ -69,7 +79,7 @@ class Grid:
 
         return self.entries[start:start + self.width]
 
-    def getcolumn(self, col):
+    def get_column(self, col):
         """
         Returns the column of the grid associated to the given column index,
         here col is contained in range [0,height-1]

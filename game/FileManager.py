@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+This module contains utils to read and to write Sudoku grids to a given file
+"""
+
+__auteur__ = "RABOU264"
+__date__ = "2016-11-05"
+__coequipiers__ = "SUPEL55", "ANMIG8"
+
 from game import SudokuGrid
 
 
@@ -30,7 +40,7 @@ def __togrid(text):
             entries.append(None)
         else:
             entries.append(int(i))
-    grid.setentries(entries)
+    grid.set_entries(entries)
 
     return grid
 

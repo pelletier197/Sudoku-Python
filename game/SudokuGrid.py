@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+This module contains a Sudoku grid class that has utils to access
+the elements contained in the grid and to ensure the content of the grid is valid
+"""
+__auteur__ = "SUPEL55"
+__date__ = "2016-10-24"
+__coequipiers__ = "RABOU264", "ANMIG8"
+
 from game import Grid
 
 
@@ -6,11 +16,12 @@ class SudokuGrid(Grid.Grid):
     Container class created from a Grid object. It uses to contain values contained in the range [1, 9]
     and None values, where None specifies and empty entry.
     """
+
     def __init__(self):
         """Initializes a Sudoku grid containing only None values in it."""
         super().__init__(9, 9)
 
-    def getsquare(self, number):
+    def get_square(self, number):
         """
         Returns the numbers associated to the given square number in the Sudoku grid.
         The grid is represented this way :
@@ -33,10 +44,10 @@ class SudokuGrid(Grid.Grid):
             raise IndexError()
 
         # Finds the top left number in the square
-        startx = (number % 3) * 3
-        starty = (number // 3) * 3
+        start_x = (number % 3) * 3
+        start_y = (number // 3) * 3
 
-        index = starty * self.width + startx
+        index = start_y * self.width + start_x
         index2 = index + 9
         index3 = index + 18
 
@@ -44,23 +55,23 @@ class SudokuGrid(Grid.Grid):
 
         return lis
 
-    def __setitem__(self, item, index):
+    def __setitem__(self, index, item):
         """
         Used to set the entry at the index(line, column) in the given tab.
         The value must either be contained between [1, 9] or be a None value, or an error is raised
         """
-        l, c = item
+        l, c = index
 
         if l < 0 or c < 0 or l >= self.height or c >= self.width:
             raise IndexError()
-        if type(index) == int and (index < 0 or index > 9):
+        if not isinstance(item, int) and (item < 0 or item > 9):
             raise ValueError()
-        elif index is not None and type(index) != int:
+        elif item is not None and not isinstance(item, int):
             raise ValueError()
 
-        self.entries[l * self.width + c] = index
+        self.entries[l * self.width + c] = item
 
-    def setentries(self, entries):
+    def set_entries(self, entries):
         """
         Sets all the entries of the Sudoku grid, where all the entries are either between[1 , 9] or are None.
         The length of the entries must be of 81
@@ -68,9 +79,9 @@ class SudokuGrid(Grid.Grid):
         assert len(entries) == self.width * self.height
 
         for i in entries:
-            if type(i) == int and (i < 0 or i > 9):
+            if isinstance(i, int) and (i < 0 or i > 9):
                 raise ValueError()
-            elif i is not None and type(i) != int:
+            elif i is not None and not isinstance(i, int):
                 raise ValueError()
 
         self.entries = entries
@@ -79,11 +90,12 @@ class SudokuGrid(Grid.Grid):
 
         new = self.entries[:]
         grid = SudokuGrid()
-        grid.setentries(new)
+        grid.set_entries(new)
 
         return grid
 
-    def get_square_number(self, l, c):
+    @staticmethod
+    def get_square_number(l, c):
         """
         Returns the square number that can be used in getsquare method
         for the given live and column in the grid.
@@ -125,12 +137,12 @@ class SudokuGrid(Grid.Grid):
         Turns the grid into a tuple containing . for empty entries and the number as a string for the others.
         This method should never be called from outside this function.
         """
-        strelem = []
+        str_elem = []
 
         for i in self.entries:
             if i is None:
-                strelem.append(".")
+                str_elem.append(".")
             else:
-                strelem.append(str(i))
+                str_elem.append(str(i))
 
-        return tuple(strelem)
+        return tuple(str_elem)

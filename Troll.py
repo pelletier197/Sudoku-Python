@@ -1,3 +1,17 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Most useful module, used to praise the lord Harambe
+"""
+
+__auteur__ = "SUPEL55"
+__date__ = "2016-11-11"
+__coequipiers__ = "RABOU264", "ANMIG8"
+
+
+
+
 # Troller
 def troll():
     print("""
