@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/GraphicInterface.py" line="234" mnemonic="9" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="7ac5c2fd-fbbc-4083-ae0b-90b04f81c01d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/winsound.pyd" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jeu.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/applaudissements.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chargement.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/winsound.pyd" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GraphicInterface.py" afterPath="$PROJECT_DIR$/GraphicInterface.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Troll.py" afterPath="$PROJECT_DIR$/Troll.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/FileManager.py" afterPath="$PROJECT_DIR$/game/FileManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/Grid.py" afterPath="$PROJECT_DIR$/game/Grid.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/SudokuGenerator.py" afterPath="$PROJECT_DIR$/game/SudokuGenerator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/SudokuGrid.py" afterPath="$PROJECT_DIR$/game/SudokuGrid.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/SudokuSolver.py" afterPath="$PROJECT_DIR$/game/SudokuSolver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sudoku.py" afterPath="$PROJECT_DIR$/sudoku.py" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,20 +31,20 @@
       <file leaf-file-name="GraphicInterface.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GraphicInterface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+            <state relative-caret-position="279">
+              <caret line="183" column="48" selection-start-line="183" selection-start-column="45" selection-end-line="183" selection-end-column="48" />
               <folding>
-                <element signature="e#431#446#0" expanded="true" />
+                <element signature="e#209#241#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SudokuSolver.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SudokuSolver.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game/SudokuSolver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="110" column="28" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="28" />
+            <state relative-caret-position="3300">
+              <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -58,7 +53,7 @@
       <file leaf-file-name="FileManager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game/FileManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
+            <state relative-caret-position="1375">
               <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding />
             </state>
@@ -68,7 +63,7 @@
       <file leaf-file-name="SudokuGrid.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game/SudokuGrid.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="1025">
               <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
@@ -78,7 +73,7 @@
       <file leaf-file-name="Grid.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game/Grid.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
+            <state relative-caret-position="875">
               <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
               <folding />
             </state>
@@ -98,7 +93,7 @@
       <file leaf-file-name="SudokuGenerator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game/SudokuGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
+            <state relative-caret-position="700">
               <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="e#220#233#0" expanded="true" />
@@ -117,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sudoku.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sudoku.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sudoku.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+            <state relative-caret-position="-925">
+              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="136" />
               <folding>
                 <element signature="e#516#531#0" expanded="true" />
               </folding>
@@ -132,7 +127,7 @@
       <file leaf-file-name="Troll.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Troll.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
+            <state relative-caret-position="450">
               <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
               <folding />
             </state>
@@ -166,11 +161,11 @@
         <option value="$PROJECT_DIR$/game/FileManager.py" />
         <option value="$PROJECT_DIR$/Troll.py" />
         <option value="$PROJECT_DIR$/game/SudokuGenerator.py" />
-        <option value="$PROJECT_DIR$/sudoku.py" />
         <option value="$PROJECT_DIR$/game/Grid.py" />
         <option value="$PROJECT_DIR$/game/SudokuGrid.py" />
-        <option value="$PROJECT_DIR$/GraphicInterface.py" />
         <option value="$PROJECT_DIR$/game/SudokuSolver.py" />
+        <option value="$PROJECT_DIR$/GraphicInterface.py" />
+        <option value="$PROJECT_DIR$/sudoku.py" />
       </list>
     </option>
   </component>
@@ -531,9 +526,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1046" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26666668" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26666668" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31630436" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31504703" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -765,7 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -777,17 +771,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Troll.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/game/FileManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
+        <state relative-caret-position="1375">
           <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding />
         </state>
@@ -795,7 +781,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/game/SudokuGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
+        <state relative-caret-position="700">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="e#220#233#0" expanded="true" />
@@ -803,19 +789,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
-          <folding>
-            <element signature="e#516#531#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/game/Grid.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
+        <state relative-caret-position="875">
           <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
           <folding />
         </state>
@@ -823,27 +799,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/game/SudokuGrid.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="1025">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game/SudokuSolver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3300">
+          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Troll.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GraphicInterface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+        <state relative-caret-position="279">
+          <caret line="183" column="48" selection-start-line="183" selection-start-column="45" selection-end-line="183" selection-end-column="48" />
           <folding>
-            <element signature="e#431#446#0" expanded="true" />
+            <element signature="e#209#241#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game/SudokuSolver.py">
+    <entry file="file://$PROJECT_DIR$/sudoku.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="110" column="28" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="-925">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="136" />
+          <folding>
+            <element signature="e#516#531#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

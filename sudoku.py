@@ -24,7 +24,7 @@ from game.SudokuSolver import SudokuSolver
 
 "python C:/Users/sunny/PycharmProjects/game/sudoku.py --mode manuel C:/Users/sunny/PycharmProjects/game/game/yomama.txt"
 "python C:/Users/sunny/PycharmProjects/game/sudoku.py --mode manuel C:/Users/sunny/PycharmProjects/game/game/tester.txt"
-"python C:/Users/sunny/PycharmProjects/game/sudoku.py --mode manuel --affichage graphique C:/Users/sunny/PycharmProjects/game/game/tester.txt"
+"python C:/Users/sunny/PycharmProjects/game/sudoku.py --mode manuel --affichage graphique C:/Users/sunny/PycharmProjects/game/tester.txt"
 
 
 def graphic_manuel():

@@ -3,16 +3,11 @@
 
 """
 This module is used to display a graphical interface in a window.
-Note that WINSOUND interface is not our, it is taken from python core directly
 """
 __auteur__ = "ANMIG8"
 __date__ = "2016-11-24"
 __coequipiers__ = "RABOU264", "SUPEL55"
 
-# The library is taken from python core.
-# It is not ours. We imported it ourselves
-# in case it is not supported with your version of python.
-import winsound
 from tkinter.filedialog import *
 from tkinter.messagebox import *
 
@@ -163,9 +158,6 @@ class GraphicInterface(Frame):
         x = y = margin + 4 * side + side / 2
         self.canvas.create_text(x, y, text="    Félicitations !\nVous avez réussi !",
                                 tags="win", fill="white", font=("Lucida Calligraphy", 32, "bold"))
-        path = sys.path[0]
-        # Applause sound
-        winsound.PlaySound(path + "/applaudissements.wav", winsound.SND_ASYNC)
 
     # Functions of the menu bar. Each function call an other function or display a dialog box
 
@@ -176,9 +168,6 @@ class GraphicInterface(Frame):
         """
         if askyesno("Nouveau", "Etes-vous sûr de vouloir faire une nouvelle partie ?"):
             self.__clear_numbers()
-            # Stop the music
-            winsound.PlaySound(None, winsound.SND_ASYNC | winsound.SND_LOOP)
-            self.sound()
 
     def exit_(self):
         """Function which asks if the player wants to exit the game"""
@@ -226,14 +215,6 @@ class GraphicInterface(Frame):
             self.clue = None
         self.__create_numbers()
 
-    def sound(self):
-        """Set the sound mode"""
-        if self.soun.get() == 1:
-            path = sys.path[0]
-            winsound.PlaySound(path + "/jeu.wav", winsound.SND_ASYNC | winsound.SND_LOOP)
-        else:
-            winsound.PlaySound(None, winsound.SND_ASYNC | winsound.SND_LOOP)
-
     def open_game(self):
         """To open a game previously saved"""
         file = askopenfilename(defaultextension="sdk", filetypes=[("Fichiers Sudoku", "*.sdk")],
@@ -276,9 +257,6 @@ class GraphicInterface(Frame):
         self.checked = IntVar(self.parent)
         self.settings_menu.add_checkbutton(label="Indices", onvalue=1, offvalue=0, variable=self.checked,
                                            command=self.clue, selectcolor="#adadad")
-        self.soun = IntVar(self.parent)
-        self.settings_menu.add_checkbutton(label="Son", onvalue=1, offvalue=0, variable=self.soun, command=self.sound,
-                                           selectcolor="#adadad")
 
         self.help_menu = Menu(self.menubar, tearoff=0, bg="#333333", fg="#adadad", activebackground="#707070")
         self.menubar.add_cascade(label="Aide", menu=self.help_menu)
