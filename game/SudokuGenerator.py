@@ -28,7 +28,6 @@ class SudokuGenerator:
         """
         grid = self.generate(SudokuGrid.SudokuGrid(), shuffle=True)
         pierced = self.__pierce_grid(grid)
-        print(grid)
         return pierced, grid
 
     @staticmethod
