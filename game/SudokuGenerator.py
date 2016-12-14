@@ -28,6 +28,7 @@ class SudokuGenerator:
         """
         grid = self.generate(SudokuGrid.SudokuGrid(), shuffle=True)
         pierced = self.__pierce_grid(grid)
+
         return pierced, grid
 
     @staticmethod
@@ -52,7 +53,7 @@ class SudokuGenerator:
         grid = SudokuGrid.SudokuGrid()
         grid.set_entries(list(sudokugrid.entries))
 
-        empty = self.find_holes(grid)
+        empty = self.__find_holes(grid)
         avail = [i for i in range(1, 10)]
         current_index = 0
 
@@ -106,7 +107,7 @@ class SudokuGenerator:
         return grid
 
     @staticmethod
-    def find_holes(sudoku_grid):
+    def __find_holes(sudoku_grid):
         """
         Finds empty spaces in the grid, where there are no number (None), and return them as a
         List of type containing the line and the column of those spaces.

@@ -38,7 +38,8 @@ class SudokuGrid(Grid.Grid):
         _ 6 _|_ 7 _|_ 8 _
         _ _ _|_ _ _|_ _ _
 
-        and the returned value is a list of the 9 elements ocontained in the square, where None is inserted on empty cases
+        and the returned value is a list of the 9 elements ocontained in the square,
+        where None is inserted on empty cases
         """
         if number < 0 or number > 8:
             raise IndexError()

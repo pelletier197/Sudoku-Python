@@ -33,12 +33,12 @@ class Grid:
         If line >= height or column >= width, then an IndexError is raised. Same event occur if
         line or column < 0
         """
-        l, c = item
+        line, col = item
 
-        if l < 0 or c < 0 or l >= self.height or c >= self.width:
+        if line < 0 or col < 0 or line >= self.height or col >= self.width:
             raise IndexError()
 
-        return self.entries[l * self.width + c]
+        return self.entries[line * self.width + col]
 
     def __setitem__(self, item, value):
         """
@@ -47,12 +47,12 @@ class Grid:
         If line >= height or column >= width, then an IndexError is raised. Same event occur if
         line or column < 0
         """
-        l, c = item
+        line, col = item
 
-        if l < 0 or c < 0 or l >= self.height or c >= self.width:
+        if line < 0 or col < 0 or line >= self.height or col >= self.width:
             raise IndexError()
 
-        self.entries[l * self.width + c] = value
+        self.entries[line * self.width + col] = value
 
     def set_entries(self, entries):
         """

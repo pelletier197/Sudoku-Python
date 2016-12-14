@@ -15,7 +15,7 @@ class SudokuSolver:
     Grid solver for a sudoku grid.
     """
 
-    def solve(self, sudokugrid, shuffle=False):
+    def solve(self, sudokugrid):
         """Returns the solved sudoku grid associated to the given sudoku grid
     Solves the given sudoku grid and returns it as a new grid. The grid given in parameter is copied
     and kept as it is.In case that the given grid has no solution, None type is returned instead of
@@ -25,7 +25,6 @@ class SudokuSolver:
         if self.__respect_rules(sudokugrid):
 
             grid = sudokugrid.copy()
-            avail = set([i for i in range(1, 10)])
             empty = self.find_holes(grid)
             current_index = 0
 
@@ -34,8 +33,6 @@ class SudokuSolver:
             tried = [set() for i in empty]
 
             length = len(empty)
-
-            import time
 
             # Sorry not sorry for the while
             while current_index < length:
@@ -61,10 +58,8 @@ class SudokuSolver:
                     grid[i, j] = test
                     current_index += 1
 
-
                 # There is zero possibilities for this case, so we backtrack
                 else:  # The current possibilities are reset, as we go back, so possibilities may change
-                    var4 = time.time()
                     tried[current_index].clear()
                     current_index -= 1
 
@@ -86,7 +81,8 @@ class SudokuSolver:
 
         return grid
 
-    def __init_possibilities(self, grid):
+    @staticmethod
+    def __init_possibilities(grid):
         """Finds the possibilities for the lines, columns and squares removing the elements from
         the grid that are present in them. The result are returned as a tuple containing
         (possibilities for each lines, possibilities for each columns, possibilities for each square

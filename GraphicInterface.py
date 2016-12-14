@@ -3,11 +3,15 @@
 
 """
 This module is used to display a graphical interface in a window.
+Note that WINSOUND interface is not our, it is taken from python core directly
 """
 __auteur__ = "ANMIG8"
 __date__ = "2016-11-24"
 __coequipiers__ = "RABOU264", "SUPEL55"
 
+# The library is taken from python core.
+# It is not ours. We imported it ourselves
+# in case it is not supported with your version of python.
 import winsound
 from tkinter.filedialog import *
 from tkinter.messagebox import *
@@ -181,7 +185,8 @@ class GraphicInterface(Frame):
         if askyesno("Quitter", "Etes-vous sûr de vouloir quitter le jeu ?"):
             self.parent.destroy()
 
-    def rules(self):
+    @staticmethod
+    def rules():
         """Function which displays the rules of the game"""
         showinfo("Règles", "Le but du jeu est de remplir la grille avec une "
                            "série de chiffres allant de 1 à 9 tous "
@@ -189,7 +194,8 @@ class GraphicInterface(Frame):
                            "même ligne, dans une même colonne "
                            "ou dans une même sous-grille.\nSource : Wikipédia")
 
-    def howto(self):
+    @staticmethod
+    def howto():
         """Function which displays how to play"""
         showinfo("Comment jouer",
                  "Cliquez sur une cellule du jeu et entrez une chiffre au clavier compris entre 1 et 9. "
@@ -197,12 +203,14 @@ class GraphicInterface(Frame):
                  "indices en cliquant sur le menu en haut.  Vous pouvez à tout moment "
                  "quitter le jeu, commencer une nouvelle partie, sauvegarder votre partie ou en ouvrir une.")
 
-    def about(self):
+    @staticmethod
+    def about():
         """Function which displays what about this game"""
         showinfo("À propos...", "Sudoku crée par la Team Pizza Power (TPP).\n"
                                 "Toutes les images et les sons sont libres de droits ou crées par la TPP.")
 
-    def clue_t(self):
+    @staticmethod
+    def clue_t():
         """Function which displays what is the "clue" mode"""
         showinfo("Que fait indice ?",
                  "L'indice vous dit si le nombre que vous avez rentré est"

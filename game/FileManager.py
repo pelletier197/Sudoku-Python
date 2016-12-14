@@ -17,10 +17,10 @@ def read_sudoku(file):
         text = fi.read()
         text = text.replace(" ", "").replace("\n", "")
 
-    gridqty = len(text) // 81
+    grid_qty = len(text) // 81
     grids = []
 
-    for i in range(gridqty):
+    for i in range(grid_qty):
         cur = text[i * 81:i * 81 + 81]
         grids.append(__togrid(cur))
 
