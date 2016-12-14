@@ -11,7 +11,6 @@ __coequipiers__ = "SUPEL55", "ANMIG8"
 import random
 
 from game import SudokuGrid
-from game import SudokuSolver
 
 
 class SudokuGenerator:
@@ -27,9 +26,9 @@ class SudokuGenerator:
         The result returned by this function is a tuple containing (generatedGrid, solution_to_the_grid).
         Note that the generation algorithm may allow multiple solution to the grid returned by this function.
         """
-        grid = SudokuSolver.SudokuSolver().solve(SudokuGrid.SudokuGrid(), shuffle=True)
+        grid = self.generate(SudokuGrid.SudokuGrid(), shuffle=True)
         pierced = self.__pierce_grid(grid)
-
+        print(grid)
         return pierced, grid
 
     @staticmethod
@@ -45,3 +44,79 @@ class SudokuGenerator:
             cop[i, j] = None
 
         return cop
+
+    def generate(self, sudokugrid, shuffle=False):
+        """
+        Uses a non optimal solve algorithm to generate a random valid sudoku grid
+    """
+
+        grid = SudokuGrid.SudokuGrid()
+        grid.set_entries(list(sudokugrid.entries))
+
+        empty = self.find_holes(grid)
+        avail = [i for i in range(1, 10)]
+        current_index = 0
+
+        tried = [[] for i in empty]
+
+        # Sorry not sorry for the while
+        while current_index < len(empty):
+
+            current_avail = list(avail)
+            if shuffle:
+                random.shuffle(current_avail)
+
+            (i, j) = empty[current_index]
+
+            # Tests each number in the available ones.
+            for index, num in enumerate(current_avail):
+
+                # If the number is not in the line, column or square, it is added at this index
+                if num not in tried[current_index] and num not in grid.get_column(j) \
+                        and num not in grid.get_line(i) \
+                        and num not in grid.get_square(grid.get_square_number(i, j)):
+
+                    grid[i, j] = num
+                    break
+
+                # Backtracking. We tried all the possibilities and None is working,
+                #  we backtrack to the previous number and try another number for it.
+                elif index == len(current_avail) - 1:
+
+                    current_index -= 1
+
+                    # Backtracked too far, there is no solution
+                    if current_index < 0:
+                        return None
+
+                    previous_indexes = empty[current_index]
+
+                    # Clears the tried for the indexes higher than the new current
+                    for k in range(current_index + 1, len(tried)):
+                        if tried[k] is []:
+                            break
+                        tried[k] = []
+
+                    previous = grid[previous_indexes]
+                    grid[previous_indexes] = None
+                    tried[current_index].append(previous)
+                    current_index -= 1
+
+            current_index += 1
+
+        return grid
+
+    @staticmethod
+    def find_holes(sudoku_grid):
+        """
+        Finds empty spaces in the grid, where there are no number (None), and return them as a
+        List of type containing the line and the column of those spaces.
+        """
+        result = []
+
+        for i in range(sudoku_grid.height):
+            for j in range(sudoku_grid.width):
+                if sudoku_grid[i, j] is None:
+                    result.append((i, j))
+
+        return result
